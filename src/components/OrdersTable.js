@@ -33,7 +33,7 @@ const OrdersTable = ({ resultsPerPage, filter }) => {
   const fetchOrders = async () => {
     setLoading(true);
     try {
-      const res = await axios.get("https://bukrobackend-production.up.railway.app/api/orders/allorder");
+      const res = await axios.get("https://bukrobackend.onrender.com/api/orders/allorder");
       let orders = res.data;
 
       if (filter && filter !== "all") {
@@ -77,7 +77,7 @@ const OrdersTable = ({ resultsPerPage, filter }) => {
 
     try {
       await axios.patch(
-        `https://bukrobackend-production.up.railway.app/api/orders/order/${orderId}/status`,
+        `https://bukrobackend.onrender.com/api/orders/order/${orderId}/status`,
         { status: newStatus }
       );
       console.log("Order updated:", orderId, newStatus);

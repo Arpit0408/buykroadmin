@@ -32,13 +32,13 @@ import {
 import Icon from "../components/Icon";
 import EditCategoryModal from "./EditCategoryModal"; // Adjust the path if needed
 
-const API_URL = "https://bukrobackend-production.up.railway.app/api/categories";
+const API_URL = "https://bukrobackend.onrender.com/api/categories";
 
 const getImageUrl = (path) => {
   if (!path) return null;
   if (path.startsWith("http://") || path.startsWith("https://")) return path;
   const cleanedPath = path.startsWith("/") ? path.slice(1) : path;
-  return `https://bukrobackend-production.up.railway.app/${cleanedPath}`;
+  return `https://bukrobackend.onrender.com/${cleanedPath}`;
 };
 
 const CategoriesAll = () => {

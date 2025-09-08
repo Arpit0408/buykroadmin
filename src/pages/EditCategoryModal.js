@@ -29,7 +29,7 @@ const EditCategoryModal = ({ isOpen, onClose, category, onUpdate }) => {
   // Load available categories for parent selection
   useEffect(() => {
     axios
-      .get("https://bukrobackend-production.up.railway.app/api/categories")
+      .get("https://bukrobackend.onrender.com/api/categories")
       .then((res) => setCategories(res.data))
       .catch(() => setError("Failed to fetch categories"));
   }, []);
@@ -78,7 +78,7 @@ const EditCategoryModal = ({ isOpen, onClose, category, onUpdate }) => {
 
     try {
       await axios.put(
-        `https://bukrobackend-production.up.railway.app/api/categories/${category._id}`,
+        `https://bukrobackend.onrender.com/api/categories/${category._id}`,
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },
@@ -128,7 +128,7 @@ const EditCategoryModal = ({ isOpen, onClose, category, onUpdate }) => {
             <Input type="file" name={type} onChange={handleFileChange} />
             {category?.[type] && (
               <img
-                src={`https://bukrobackend-production.up.railway.app/${category[type].replace(/^\//, "")}`}
+                src={`https://bukrobackend.onrender.com/${category[type].replace(/^\//, "")}`}
                 alt={`${type}`}
                 className="w-20 mt-2 rounded"
               />

@@ -37,7 +37,7 @@ const getImageUrl = (path) => {
   if (!path) return null;
   if (path.startsWith("http://") || path.startsWith("https://")) return path;
   const cleanedPath = path.startsWith("/") ? path.slice(1) : path;
-  return `https://bukrobackend-production.up.railway.app/${cleanedPath}`;
+  return `https://bukrobackend.onrender.com/${cleanedPath}`;
 };
 
 const ProductsAll = () => {
@@ -61,8 +61,8 @@ const ProductsAll = () => {
       try {
         setLoading(true);
         const [productsRes, categoriesRes] = await Promise.all([
-          axios.get("https://bukrobackend-production.up.railway.app/api/products"),
-          axios.get("https://bukrobackend-production.up.railway.app/api/categories"),
+          axios.get("https://bukrobackend.onrender.com/api/products"),
+          axios.get("https://bukrobackend.onrender.com/api/categories"),
         ]);
 
         if (isMounted) {
@@ -114,7 +114,7 @@ const ProductsAll = () => {
   const handleDelete = async () => {
     if (!selectedDeleteProduct) return;
     try {
-      await axios.delete(`https://bukrobackend-production.up.railway.app/api/products/${selectedDeleteProduct._id}`);
+      await axios.delete(`https://bukrobackend.onrender.com/api/products/${selectedDeleteProduct._id}`);
       setProducts(products.filter((p) => p._id !== selectedDeleteProduct._id));
       closeDeleteModal();
     } catch (error) {

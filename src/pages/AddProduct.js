@@ -53,7 +53,7 @@ const AddProduct = () => {
 
   useEffect(() => {
     axios
-      .get("https://bukrobackend-production.up.railway.app/api/categories")
+      .get("https://bukrobackend.onrender.com/api/categories")
       .then((res) => setCategories(res.data))
       .catch((err) => console.error("Error fetching categories", err));
   }, []);
@@ -163,7 +163,7 @@ const AddProduct = () => {
     data.append("variations", JSON.stringify(formattedVariations));
 
     try {
-      await axios.post("https://bukrobackend-production.up.railway.app/api/products", data);
+      await axios.post("https://bukrobackend.onrender.com/api/products", data);
       alert("✅ Product added successfully");
 
       // Reset form

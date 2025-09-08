@@ -29,7 +29,7 @@ const getImageUrl = (path) => {
     if (path.startsWith("http://") || path.startsWith("https://")) return path;
     // Otherwise, construct the local URL. Ensure it's not double-slashed.
     const cleanedPath = path.startsWith("/") ? path.slice(1) : path;
-    return `https://bukrobackend-production.up.railway.app/${cleanedPath}`;
+    return `https://bukrobackend.onrender.com/${cleanedPath}`;
 };
 
 const EditProduct = () => {
@@ -74,13 +74,13 @@ console.log("Editing product with ID:", productId);
             setError(null);
             try {
                 // Fetch Categories
-                const categoriesRes = await axios.get("https://bukrobackend-production.up.railway.app/api/categories");
+                const categoriesRes = await axios.get("https://bukrobackend.onrender.com/api/categories");
                 setCategories(categoriesRes.data);
 
                 // Fetch Product Data if productId is available
                 if (productId) {
                     console.log("Fetching product data for ID:", productId);
-                    const productRes = await axios.get(`https://bukrobackend-production.up.railway.app/api/products/${productId}`);
+                    const productRes = await axios.get(`https://bukrobackend.onrender.com/api/products/${productId}`);
                     const productData = productRes.data;
                     console.log("Fetched product data:", productData);
 
@@ -341,7 +341,7 @@ console.log("Editing product with ID:", productId);
         });
 
         try {
-            await axios.put(`https://bukrobackend-production.up.railway.app/api/products/${productId}`, payload, {
+            await axios.put(`https://bukrobackend.onrender.com/api/products/${productId}`, payload, {
                 headers: {
                     "Content-Type": "multipart/form-data", // Important for file uploads
                 },

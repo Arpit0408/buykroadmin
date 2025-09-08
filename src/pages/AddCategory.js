@@ -39,7 +39,7 @@ const AddCategory = () => {
   // Fetch categories on mount
   useEffect(() => {
     axios
-      .get("https://bukrobackend-production.up.railway.app/api/categories")
+      .get("https://bukrobackend.onrender.com/api/categories")
       .then((res) => {
         setCategories(res.data);
         setError("");
@@ -78,7 +78,7 @@ const AddCategory = () => {
     if (files.logo) formData.append("logo", files.logo);
 
     try {
-      await axios.post("https://bukrobackend-production.up.railway.app/api/categories", formData, {
+      await axios.post("https://bukrobackend.onrender.com/api/categories", formData, {
         headers: { "Content-Type": "multipart/form-data" },
         withCredentials: true,
       });
